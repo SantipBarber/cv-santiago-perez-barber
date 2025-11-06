@@ -10,7 +10,11 @@
     <style>
         @page {
             size: A4;
-            margin: 0;
+            margin: 2.5rem 0 0 0;  /* Aumentado el margen superior para páginas normales */
+        }
+
+        @page :first {
+            margin: 0;  /* Sin margen para la primera página */
         }
 
         @media print {
@@ -30,22 +34,34 @@
                 box-shadow: none;
                 border-radius: 0;
             }
-            
-            
-            .no-print {
-                display: none !important;
+
+            header {
+                padding: 2.5rem 2rem 1.5rem 2rem !important;  /* Más padding arriba que abajo */
             }
+
+            section {
+                padding: 2rem 2rem !important;
+            }
+
+            /* Primera sección después del header */
+            header + section {
+                padding-top: 1.5rem !important;
+            }
+
+            /* Removida la duplicación del header + section */
             
-            .page-break {
+            /* Clases de utilidad para impresión */
+            .no-print { display: none !important; }
+            .page-break { 
                 page-break-after: always;
                 break-after: always;
             }
-            
             .avoid-break {
                 page-break-inside: avoid;
                 break-inside: avoid;
             }
             
+            /* Prevenir saltos en títulos */
             h2, h3, h4 {
                 page-break-after: avoid;
                 break-after: avoid;
@@ -55,14 +71,8 @@
                 break-inside: avoid;
             }
 
-            header {
-                padding-top: 1.5rem !important;
-                padding-bottom: 1.5rem !important;
-            }
-
-            section {
-                padding-top: 1rem !important;
-                padding-bottom: 1rem !important;
+            .section-title::after {
+                background: #2563eb;
             }
         }
 
