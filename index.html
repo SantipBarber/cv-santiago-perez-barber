@@ -10,7 +10,7 @@
     <style>
         @page {
             size: A4;
-            margin: 1.5cm 1cm;
+            /* margin: 1.5cm 1cm; */
         }
 
         @media print {
@@ -70,10 +70,37 @@
         }
 
         @media screen {
+            body {
+                background-color: #f3f4f6;  /* Un gris muy claro */
+                min-height: 100vh;
+                padding: 2rem 1rem;         /* Añade padding arriba y abajo */
+            }
+
             .container-cv {
-                max-width: 210mm;
-                margin: 0 auto;
-                box-shadow: 0 0 30px rgba(0, 0, 0, 0.12);
+                max-width: 1024px;          /* Limita el ancho máximo */
+                margin: 0 auto;             /* Centra el contenido */
+                background: white;
+                box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 
+                        0 1px 2px -1px rgba(0, 0, 0, 0.1);
+                border-radius: 0.5rem;      /* Bordes redondeados */
+            }
+        }
+
+        @media print {
+            body {
+                background: white;
+                margin: 0;
+                padding: 0;
+            }
+
+            .container-cv {
+                width: 210mm;
+                min-height: 297mm;
+                margin: 0;
+                padding: 0;
+                background: white;
+                box-shadow: none;
+                border-radius: 0;
             }
         }
 
@@ -99,7 +126,7 @@
         }
     </style>
 </head>
-<body class="bg-gray-100">
+<body class="bg-white-100">
     <!-- Botón de descarga PDF (solo visible en pantalla) -->
     <div class="no-print fixed top-4 right-4 z-50">
         <button 
@@ -196,7 +223,7 @@
                     </div>
 
                     <!-- Logros Destacados - 3 Cajas Horizontales -->
-                    <div class="grid md:grid-cols-3 gap-4 mb-6">
+                    <div class="grid md:grid-cols-3 print:grid-cols-3 gap-4 mb-6">
                         <!-- Logro 1: KMP Pioneer -->
                         <div class="bg-gradient-to-br from-blue-500 to-blue-600 text-white p-4 rounded-lg shadow-lg avoid-break">
                             <div class="text-3xl mb-2">🚀</div>
@@ -220,7 +247,7 @@
                     </div>
 
                     <!-- Descripción en 2 Columnas -->
-                    <div class="grid md:grid-cols-2 gap-4 text-sm text-gray-700">
+                    <div class="grid md:grid-cols-2 print:grid-cols-2 gap-4 text-sm text-gray-700">
                         <!-- Columna 1 -->
                         <div class="space-y-4">
                             <!-- Desarrollo Móvil -->
@@ -331,7 +358,7 @@
         <section class="px-8 pb-6" aria-labelledby="stack-tecnologico">
             <h2 id="stack-tecnologico" class="text-2xl font-bold text-gray-800 mb-4 section-title">🛠️ Stack Tecnológico</h2>
             
-            <div class="grid md:grid-cols-2 gap-4">
+            <div class="grid md:grid-cols-2 print:grid-cols-2 gap-4">
                 <!-- Desarrollo Móvil -->
                 <div class="avoid-break bg-gradient-to-br from-blue-50 to-blue-100 p-4 rounded-lg border border-blue-200">
                     <h3 class="font-bold text-gray-800 mb-3 flex items-center gap-2">
@@ -610,7 +637,7 @@
                 <div class="avoid-break">
                     <h3 class="font-bold text-gray-700 mb-3 text-lg mt-6">Certificaciones Profesionales</h3>
                     
-                    <div class="grid md:grid-cols-3 gap-5">
+                    <div class="grid md:grid-cols-3 print:grid-cols-3 gap-5">
                         <div class="text-sm avoid-break">
                             <p class="font-semibold text-blue-600 mb-2">📱 Desarrollo Móvil (2022-2023):</p>
                             <ul class="list-disc list-inside text-gray-600 space-y-1 ml-2">
@@ -656,7 +683,7 @@
 
         <!-- Idiomas e Info Adicional -->
         <section class="px-8 pb-6 avoid-break" aria-labelledby="idiomas-info">
-            <div class="grid md:grid-cols-2 gap-6">
+            <div class="grid md:grid-cols-2 print:grid-cols-2 gap-6">
                 <div>
                     <h2 id="idiomas" class="text-2xl font-bold text-gray-800 mb-4 section-title">🌍 Idiomas</h2>
                     <div class="space-y-2 text-sm">
