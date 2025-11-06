@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Santiago Pérez Barber">
+    <meta name="description" content="CV de Santiago Pérez Barber - Desarrollador Kotlin Multiplatform especializado en desarrollo móvil nativo y multiplataforma">
+    <title>Santiago Pérez Barber - Desarrollador Kotlin Multiplatform</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @page {
+            size: A4;
+            margin: 1.5cm 1cm;
+        }
+
+        @media print {
+            body {
+                print-color-adjust: exact;
+                -webkit-print-color-adjust: exact;
+            }
+            
+            .no-print {
+                display: none !important;
+            }
+            
+            .page-break {
+                page-break-after: always;
+                break-after: always;
+            }
+            
+            .avoid-break {
+                page-break-inside: avoid;
+                break-inside: avoid;
+            }
+            
+            h2, h3, h4 {
+                page-break-after: avoid;
+                break-after: avoid;
+            }
+            
+            .tech-badge {
+                break-inside: avoid;
+            }
+
+            header {
+                padding-top: 1.5rem !important;
+                padding-bottom: 1.5rem !important;
+            }
+
+            section {
+                padding-top: 1rem !important;
+                padding-bottom: 1rem !important;
+            }
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+        }
+
+        .tech-badge {
+            transition: all 0.2s ease;
+            display: inline-block;
+        }
+
+        @media screen {
+            .tech-badge:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.15);
+            }
+        }
+
+        @media screen {
+            .container-cv {
+                max-width: 210mm;
+                margin: 0 auto;
+                box-shadow: 0 0 30px rgba(0, 0, 0, 0.12);
+            }
+        }
+
+        .section-title {
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(to right, #2563eb, #3b82f6);
+        }
+
+        @media print {
+            .section-title::after {
+                background: #2563eb;
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+    <!-- Botón de descarga PDF (solo visible en pantalla) -->
+    <div class="no-print fixed top-4 right-4 z-50">
+        <button 
+            onclick="window.print()" 
+            class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg shadow-lg transition duration-200 flex items-center gap-2"
+            aria-label="Descargar CV como PDF">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M9 19l3 3m0 0l3-3m-3 3V10"></path>
+            </svg>
+            Descargar PDF
+        </button>
+    </div>
+
+    <!-- Contenedor principal -->
+    <main class="container-cv bg-white min-h-screen" role="main">
+        <!-- Header -->
+        <header class="bg-gradient-to-r from-blue-600 to-blue-800 text-white px-8 py-8 avoid-break" role="banner">
+            <h1 class="text-4xl font-bold mb-3">Santiago Pérez Barber</h1>
+            <p class="text-xl text-blue-100 mb-4">Desarrollador Android/iOS Nativo y <strong>Multiplataforma</strong></p>
+            <div class="flex flex-wrap gap-5 text-sm text-blue-100">
+                <div class="flex items-center gap-2">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                    </svg>
+                    <span>Oviedo, Asturias</span>
+                </div>
+                <a href="mailto:santipbr@gmail.com" class="flex items-center gap-2 hover:text-white transition-colors">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                    </svg>
+                    santipbr@gmail.com
+                </a>
+                <a href="tel:+34691310158" class="flex items-center gap-2 hover:text-white transition-colors">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+                    </svg>
+                    +34 691 310 158
+                </a>
+                <a href="https://github.com/santipbarber" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 hover:text-white transition-colors">
+                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                    </svg>
+                    santipbarber
+                </a>
+                <a href="https://www.linkedin.com/in/santipbarber/" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 hover:text-white transition-colors">
+                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                    </svg>
+                    santipbarber
+                </a>
+            </div>
+        </header>
+
+        <!-- Perfil Profesional -->
+        <section class="px-8 pt-6 avoid-break" aria-labelledby="perfil-profesional">
+            <h2 id="perfil-profesional" class="text-2xl font-bold text-gray-800 mb-4 section-title">👨‍💻 Perfil Profesional</h2>
+            <div class="space-y-3 text-gray-700 leading-relaxed">
+                <p>
+                    Desarrollador móvil especializado en <em class="text-blue-700"><strong>Kotlin Multiplatform</strong></em> y soluciones <em><strong>offline-first</strong></em> con más de 4 años de experiencia en desarrollo nativo y <strong>multiplataforma</strong>. Expertise en arquitectura moderna tanto para iOS como Android, con foco especial en aplicaciones <strong>multiplataforma</strong> de alto rendimiento.
+                </p>
+                <p>
+                    Experiencia sólida en <em>Business Intelligence</em> empresarial, análisis de datos y explotación de bases de datos a gran escala. Capacidad demostrada en la implementación de soluciones de visualización y analytics que reemplazan herramientas comerciales tradicionales.
+                </p>
+                <p>
+                    Actualmente desarrollando <strong class="text-blue-700">soluciones impulsadas por IA</strong> con enfoque en privacidad de datos mediante inferencia local, sistemas RAG y agentes inteligentes para aplicaciones empresariales.
+                </p>
+            </div>
+            <div class="mt-5 p-4 bg-blue-50 border-l-4 border-blue-600 rounded-r-lg">
+                <p class="text-gray-800 font-semibold mb-1">🌟 Diferencial clave:</p>
+                <p class="text-gray-700 text-sm"><em>Early adopter</em> en <strong>KMP</strong> desde versión beta, con proyectos en producción. Especialización en arquitecturas <em><strong>offline-first</strong></em> y desarrollo de agentes IA con privacidad de datos.</p>
+            </div>
+        </section>
+
+        <!-- Salto de página para PDF -->
+        <div class="page-break"></div>
+
+        <!-- Experiencia Profesional -->
+        <section class="px-8 py-6" aria-labelledby="experiencia-profesional">
+            <h2 id="experiencia-profesional" class="text-2xl font-bold text-gray-800 mb-4 section-title">💼 Experiencia Profesional</h2>
+            
+            <article class="avoid-break">
+                <!-- Header de Bytacora -->
+                <div class="mb-5">
+                    <div class="flex justify-between items-start mb-4">
+                        <div>
+                            <h3 class="text-xl font-bold text-gray-800">Desarrollador de Software Senior</h3>
+                            <p class="text-blue-600 font-semibold">BYTACORA SOLUCIONES INFORMÁTICAS SL</p>
+                        </div>
+                        <div class="text-right">
+                            <p class="text-gray-600 font-semibold">Jun 2021 - Actualidad</p>
+                            <p class="text-gray-500 text-sm">(+4 años)</p>
+                        </div>
+                    </div>
+
+                    <!-- Logros Destacados - 3 Cajas Horizontales -->
+                    <div class="grid md:grid-cols-3 gap-4 mb-6">
+                        <!-- Logro 1: KMP Pioneer -->
+                        <div class="bg-gradient-to-br from-blue-500 to-blue-600 text-white p-4 rounded-lg shadow-lg avoid-break">
+                            <div class="text-3xl mb-2">🚀</div>
+                            <h4 class="font-bold text-lg mb-2">Kotlin Multiplatform</h4>
+                            <p class="text-sm text-blue-50">Desarrollo <strong>KMP</strong> desde versión beta con proyectos en producción. Arquitecturas <em><strong>offline-first</strong></em> robustas.</p>
+                        </div>
+
+                        <!-- Logro 2: AI Solutions -->
+                        <div class="bg-gradient-to-br from-purple-500 to-purple-600 text-white p-4 rounded-lg shadow-lg avoid-break">
+                            <div class="text-3xl mb-2">🤖</div>
+                            <h4 class="font-bold text-lg mb-2">AI Solutions</h4>
+                            <p class="text-sm text-purple-50">Agentes IA con modelos locales. RAG systems priorizando privacidad de datos.</p>
+                        </div>
+
+                        <!-- Logro 3: BI Implementation -->
+                        <div class="bg-gradient-to-br from-green-500 to-green-600 text-white p-4 rounded-lg shadow-lg avoid-break">
+                            <div class="text-3xl mb-2">📊</div>
+                            <h4 class="font-bold text-lg mb-2">BI Platform</h4>
+                            <p class="text-sm text-green-50">Despliegue de Superset empresarial. ClickHouse para analytics de alto volumen.</p>
+                        </div>
+                    </div>
+
+                    <!-- Descripción en 2 Columnas -->
+                    <div class="grid md:grid-cols-2 gap-4 text-sm text-gray-700">
+                        <!-- Columna 1 -->
+                        <div class="space-y-4">
+                            <!-- Desarrollo Móvil -->
+                            <div class="avoid-break">
+                                <h4 class="font-bold text-gray-800 mb-2 flex items-center gap-2">
+                                    <span aria-hidden="true">📱</span> Desarrollo Móvil
+                                </h4>
+                                <p class="leading-relaxed">
+                                    Desarrollo nativo <strong>iOS</strong> y <strong>Android</strong> con foco en arquitecturas modernas y UI declarativa. Especialización en <em class="text-blue-700"><strong>Kotlin Multiplatform</strong></em> para compartir lógica de negocio entre plataformas. Implementación de arquitecturas <em><strong>offline-first</strong></em> con persistencia local y sincronización robusta para aplicaciones empresariales multicliente.
+                                </p>
+                            </div>
+
+                            <!-- Backend & ERP -->
+                            <div class="avoid-break">
+                                <h4 class="font-bold text-gray-800 mb-2 flex items-center gap-2">
+                                    <span aria-hidden="true">🔧</span> Backend & ERP
+                                </h4>
+                                <p class="leading-relaxed">
+                                    Desarrollo de <strong>módulos personalizados ODOO</strong> y migraciones entre versiones. Creación de APIs REST modernas y backends escalables. Integraciones complejas mediante protocolos JSON-RPC y XML-RPC para sistemas empresariales.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Columna 2 -->
+                        <div class="space-y-4">
+                            <!-- Business Intelligence -->
+                            <div class="avoid-break">
+                                <h4 class="font-bold text-gray-800 mb-2 flex items-center gap-2">
+                                    <span aria-hidden="true">📊</span> <em>Business Intelligence</em>
+                                </h4>
+                                <p class="leading-relaxed">
+                                    Implementación y configuración de <strong>Apache Superset</strong> como plataforma BI principal, reemplazando herramientas comerciales. Adopción de <strong>ClickHouse</strong> para análisis de grandes volúmenes. Desarrollo de dashboards ejecutivos, análisis de KPIs y automatización de reportes.
+                                </p>
+                            </div>
+
+                            <!-- IA & LLM -->
+                            <div class="avoid-break">
+                                <h4 class="font-bold text-gray-800 my-2 flex items-center gap-2">
+                                    <span aria-hidden="true">🤖</span> Inteligencia Artificial
+                                </h4>
+                                <p class="leading-relaxed">
+                                    Desarrollo de <strong>agentes IA</strong> y sistemas RAG para aplicaciones empresariales. Implementación con modelos locales priorizando <strong>privacidad de datos</strong> mediante inferencia local. Integración de LLMs en flujos de trabajo productivos.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Experiencia anterior -->
+            <article class="avoid-break mt-6">
+                <div class="border-t pt-4">
+                    <div class="flex justify-between items-start mb-2">
+                        <div>
+                            <h3 class="text-lg font-bold text-gray-800">Director General y Socio Gerente</h3>
+                            <p class="text-blue-600 font-semibold">VERTICAL MONTGÓ S.L.</p>
+                        </div>
+                        <div class="text-right">
+                            <p class="text-gray-600 font-semibold"><em>Agosto 2005 - Abril 2015 (+10 años)</em></p>
+                        </div>
+                    </div>
+                    <div class="text-sm text-gray-600">
+                        <p class="mt-1.5 leading-relaxed">Gestión integral de empresa del sector construcción y metal. Dirección de proyectos, supervisión de equipos técnicos, gestión de trabajos verticales especializados y coordinación de operaciones comerciales y administrativas.</p>
+                    </div>
+                </div>
+            </article>
+
+
+            <article class="avoid-break mt-6">
+                <div class="border-t pt-4">
+                    <div class="flex justify-between items-start mb-2">
+                        <div>
+                            <h3 class="text-lg font-bold text-gray-800">Jefe de Equipo</h3>
+                            <p class="text-blue-600 font-semibold">SERVIATES S.L., Sector Construcción</p>
+                        </div>
+                        <div class="text-right">
+                            <p class="text-gray-600 font-semibold">Junio 2004 - Junio 2005</p>
+                        </div>
+                    </div>
+                    <div class="text-sm text-gray-600">
+                        <p class="mt-1.5 leading-relaxed">Montaje y desmontaje de andamios, tanto eléctrico como tubular, montacargas y grúas-torre.</p>
+                    </div>
+                </div>
+            </article>
+
+            <article class="avoid-break mt-6">
+                <div class="border-t pt-4">
+                    <div class="flex justify-between items-start mb-2">
+                        <div>
+                            <h3 class="text-lg font-bold text-gray-800">Jefe de Equipo/Scaffolder</h3>
+                            <p class="text-blue-600 font-semibold">SPAT MODULAR S.L.</p>
+                        </div>
+                        <div class="text-right">
+                            <p class="text-gray-600 font-semibold">Hasta Junio 2004</p>
+                        </div>
+                    </div>
+                    <div class="text-sm text-gray-600">
+                        <p class="mt-1.5 leading-relaxed">Montaje y desmontaje estructuras, tanto plataformas como cubiertas (dos aguas y planas), para conciertos, espectáculos y grandes eventos. Montaje de gradas para eventos. Montaje de iluminación y sonido para espectáculos, discomóviles y de refuerzo para auditorios.</p>
+                    </div>
+                </div>
+            </article>
+        </section>
+
+        <!-- Salto de página para PDF -->
+        <div class="page-break"></div>
+
+        <!-- Stack Tecnológico -->
+        <section class="px-8 pb-6" aria-labelledby="stack-tecnologico">
+            <h2 id="stack-tecnologico" class="text-2xl font-bold text-gray-800 mb-4 section-title">🛠️ Stack Tecnológico</h2>
+            
+            <div class="grid md:grid-cols-2 gap-4">
+                <!-- Desarrollo Móvil -->
+                <div class="avoid-break bg-gradient-to-br from-blue-50 to-blue-100 p-4 rounded-lg border border-blue-200">
+                    <h3 class="font-bold text-gray-800 mb-3 flex items-center gap-2">
+                        <span class="text-xl" aria-hidden="true">📱</span> Desarrollo Móvil
+                    </h3>
+                    <div class="space-y-3 text-sm">
+                        <div>
+                            <p class="font-semibold text-gray-700 mb-1.5">iOS:</p>
+                            <div class="flex flex-wrap gap-1.5">
+                                <span class="tech-badge bg-white text-gray-700 px-2.5 py-1 rounded text-xs font-medium shadow-sm">Swift</span>
+                                <span class="tech-badge bg-white text-gray-700 px-2.5 py-1 rounded text-xs font-medium shadow-sm">SwiftUI</span>
+                                <span class="tech-badge bg-white text-gray-700 px-2.5 py-1 rounded text-xs font-medium shadow-sm">UIKit</span>
+                                <span class="tech-badge bg-white text-gray-700 px-2.5 py-1 rounded text-xs font-medium shadow-sm">Objective-C</span>
+                                <span class="tech-badge bg-white text-gray-700 px-2.5 py-1 rounded text-xs font-medium shadow-sm">CoreData</span>
+                                <span class="tech-badge bg-white text-gray-700 px-2.5 py-1 rounded text-xs font-medium shadow-sm">SwiftData</span>
+                                <span class="tech-badge bg-white text-gray-700 px-2.5 py-1 rounded text-xs font-medium shadow-sm">Combine</span>
+                            </div>
+                        </div>
+                        <div>
+                            <p class="font-semibold text-gray-700 mb-1.5">Android:</p>
+                            <div class="flex flex-wrap gap-1.5">
+                                <span class="tech-badge bg-white text-gray-700 px-2.5 py-1 rounded text-xs font-medium shadow-sm">Kotlin</span>
+                                <span class="tech-badge bg-white text-gray-700 px-2.5 py-1 rounded text-xs font-medium shadow-sm">Jetpack Compose</span>
+                                <span class="tech-badge bg-white text-gray-700 px-2.5 py-1 rounded text-xs font-medium shadow-sm">Corrutinas</span>
+                                <span class="tech-badge bg-white text-gray-700 px-2.5 py-1 rounded text-xs font-medium shadow-sm">Flow</span>
+                                <span class="tech-badge bg-white text-gray-700 px-2.5 py-1 rounded text-xs font-medium shadow-sm">Room</span>
+                                <span class="tech-badge bg-white text-gray-700 px-2.5 py-1 rounded text-xs font-medium shadow-sm">Hilt</span>
+                                <span class="tech-badge bg-white text-gray-700 px-2.5 py-1 rounded text-xs font-medium shadow-sm">Coil</span>
+                            </div>
+                        </div>
+                        <div>
+                            <p class="font-semibold text-blue-700 mb-1.5"><strong>Kotlin Multiplatform</strong>:</p>
+                            <div class="flex flex-wrap gap-1.5">
+                                <span class="tech-badge bg-blue-600 text-white px-2.5 py-1 rounded text-xs font-semibold shadow-sm">Compose <strong>Multiplatform</strong></span>
+                                <span class="tech-badge bg-blue-600 text-white px-2.5 py-1 rounded text-xs font-semibold shadow-sm">Ktor</span>
+                                <span class="tech-badge bg-blue-600 text-white px-2.5 py-1 rounded text-xs font-semibold shadow-sm">Navigation Compose</span>
+                                <span class="tech-badge bg-white text-gray-700 px-2.5 py-1 rounded text-xs font-medium shadow-sm">SQLDelight</span>
+                                <span class="tech-badge bg-white text-gray-700 px-2.5 py-1 rounded text-xs font-medium shadow-sm">Realm Kotlin</span>
+                                <span class="tech-badge bg-white text-gray-700 px-2.5 py-1 rounded text-xs font-medium shadow-sm">Koin</span>
+                                <span class="tech-badge bg-white text-gray-700 px-2.5 py-1 rounded text-xs font-medium shadow-sm">Serialization</span>
+                                <span class="tech-badge bg-white text-gray-700 px-2.5 py-1 rounded text-xs font-medium shadow-sm">Datastore</span>
+                                <span class="tech-badge bg-white text-gray-700 px-2.5 py-1 rounded text-xs font-medium shadow-sm">Napier</span>
+                            </div>
+                        </div>
+                        <div>
+                            <p class="font-semibold text-gray-700 mb-1.5">Arquitectura:</p>
+                            <div class="flex flex-wrap gap-1.5">
+                                <span class="tech-badge bg-white text-gray-700 px-2.5 py-1 rounded text-xs font-medium shadow-sm">MVVM</span>
+                                <span class="tech-badge bg-white text-gray-700 px-2.5 py-1 rounded text-xs font-medium shadow-sm">Clean Architecture</span>
+                                <span class="tech-badge bg-white text-gray-700 px-2.5 py-1 rounded text-xs font-medium shadow-sm">Repository Pattern</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- IA & LLM -->
+                <div class="avoid-break bg-gradient-to-br from-purple-50 to-purple-100 p-4 rounded-lg border border-purple-200">
+                    <h3 class="font-bold text-gray-800 mb-3 flex items-center gap-2">
+                        <span class="text-xl" aria-hidden="true">🤖</span> IA & LLM
+                    </h3>
+                    <div class="space-y-3 text-sm">
+                        <div>
+                            <p class="font-semibold text-gray-700 mb-1.5">Frameworks:</p>
+                            <div class="flex flex-wrap gap-1.5">
+                                <span class="tech-badge bg-white text-gray-700 px-2.5 py-1 rounded text-xs font-medium shadow-sm">LangChain</span>
+                                <span class="tech-badge bg-white text-gray-700 px-2.5 py-1 rounded text-xs font-medium shadow-sm">LangGraph</span>
+                                <span class="tech-badge bg-white text-gray-700 px-2.5 py-1 rounded text-xs font-medium shadow-sm">CrewAI</span>
+                                <span class="tech-badge bg-white text-gray-700 px-2.5 py-1 rounded text-xs font-medium shadow-sm">LlamaIndex</span>
+                            </div>
+                        </div>
+                        <div>
+                            <p class="font-semibold text-gray-700 mb-1.5">Observability & Tools:</p>
+                            <div class="flex flex-wrap gap-1.5">
+                                <span class="tech-badge bg-white text-gray-700 px-2.5 py-1 rounded text-xs font-medium shadow-sm">LangSmith</span>
+                                <span class="tech-badge bg-white text-gray-700 px-2.5 py-1 rounded text-xs font-medium shadow-sm">Langfuse</span>
+                            </div>
+                        </div>
+                        <div>
+                            <p class="font-semibold text-gray-700 mb-1.5">Proveedores LLM:</p>
+                            <div class="flex flex-wrap gap-1.5">
+                                <span class="tech-badge bg-white text-gray-700 px-2.5 py-1 rounded text-xs font-medium shadow-sm">OpenAI</span>
+                                <span class="tech-badge bg-white text-gray-700 px-2.5 py-1 rounded text-xs font-medium shadow-sm">Anthropic Claude</span>
+                                <span class="tech-badge bg-white text-gray-700 px-2.5 py-1 rounded text-xs font-medium shadow-sm">Google Gemini</span>
+                                <span class="tech-badge bg-white text-gray-700 px-2.5 py-1 rounded text-xs font-medium shadow-sm">AI21 Labs</span>
+                                <span class="tech-badge bg-white text-gray-700 px-2.5 py-1 rounded text-xs font-medium shadow-sm">Azure AI</span>
+                            </div>
+                        </div>
+                        <!-- <div>
+                            <p class="font-semibold text-purple-700 mb-1.5">Modelos Open Source:</p>
+                            <div class="flex flex-wrap gap-1.5">
+                                <span class="tech-badge bg-purple-600 text-white px-2.5 py-1 rounded text-xs font-semibold shadow-sm">Llama 3</span>
+                                <span class="tech-badge bg-purple-600 text-white px-2.5 py-1 rounded text-xs font-semibold shadow-sm">Qwen</span>
+                                <span class="tech-badge bg-purple-600 text-white px-2.5 py-1 rounded text-xs font-semibold shadow-sm">DeepSeek</span>
+                                <span class="tech-badge bg-white text-gray-700 px-2.5 py-1 rounded text-xs font-medium shadow-sm">Mistral</span>
+                                <span class="tech-badge bg-white text-gray-700 px-2.5 py-1 rounded text-xs font-medium shadow-sm">Gemma</span>
+                            </div>
+                        </div> -->
+                        <div>
+                            <p class="font-semibold text-gray-700 mb-1.5">Plataformas Locales:</p>
+                            <div class="flex flex-wrap gap-1.5">
+                                <span class="tech-badge bg-white text-gray-700 px-2.5 py-1 rounded text-xs font-medium shadow-sm">Ollama</span>
+                                <span class="tech-badge bg-white text-gray-700 px-2.5 py-1 rounded text-xs font-medium shadow-sm">LM Studio</span>
+                                <span class="tech-badge bg-white text-gray-700 px-2.5 py-1 rounded text-xs font-medium shadow-sm">HuggingFace</span>
+                            </div>
+                        </div>
+                        <div>
+                            <p class="font-semibold text-gray-700 mb-1.5 italic">AI Coding:</p>
+                            <div class="flex flex-wrap gap-1.5">
+                                <span class="tech-badge bg-white text-gray-700 px-2.5 py-1 rounded text-xs font-medium shadow-sm">Windsurf</span>
+                                <span class="tech-badge bg-white text-gray-700 px-2.5 py-1 rounded text-xs font-medium shadow-sm">Cursor</span>
+                                <span class="tech-badge bg-white text-gray-700 px-2.5 py-1 rounded text-xs font-medium shadow-sm">Claude Code</span>
+                                <span class="tech-badge bg-white text-gray-700 px-2.5 py-1 rounded text-xs font-medium shadow-sm">Qwen CLI</span>
+                                <span class="tech-badge bg-white text-gray-700 px-2.5 py-1 rounded text-xs font-medium shadow-sm">Gemini CLI</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Backend & APIs -->
+                <div class="avoid-break bg-gradient-to-br from-green-50 to-green-100 p-4 rounded-lg border border-green-200">
+                    <h3 class="font-bold text-gray-800 mb-3 flex items-center gap-2">
+                        <span class="text-xl" aria-hidden="true">⚙️</span> Backend & APIs
+                    </h3>
+                    <div class="space-y-3 text-sm">
+                        <div>
+                            <p class="font-semibold text-gray-700 mb-1.5">Lenguajes:</p>
+                            <div class="flex flex-wrap gap-1.5">
+                                <span class="tech-badge bg-white text-gray-700 px-2.5 py-1 rounded text-xs font-medium shadow-sm">Python</span>
+                                <span class="tech-badge bg-white text-gray-700 px-2.5 py-1 rounded text-xs font-medium shadow-sm">Kotlin</span>
+                                <span class="tech-badge bg-white text-gray-700 px-2.5 py-1 rounded text-xs font-medium shadow-sm">TypeScript</span>
+                                <span class="tech-badge bg-white text-gray-700 px-2.5 py-1 rounded text-xs font-medium shadow-sm">Node.js</span>
+                            </div>
+                        </div>
+                        <div>
+                            <p class="font-semibold text-green-700 mb-1.5">Frameworks:</p>
+                            <div class="flex flex-wrap gap-1.5">
+                                <span class="tech-badge bg-green-600 text-white px-2.5 py-1 rounded text-xs font-semibold shadow-sm">FastAPI</span>
+                                <span class="tech-badge bg-green-600 text-white px-2.5 py-1 rounded text-xs font-semibold shadow-sm">Ktor Server</span>
+                                <span class="tech-badge bg-white text-gray-700 px-2.5 py-1 rounded text-xs font-medium shadow-sm">Django</span>
+                                <span class="tech-badge bg-white text-gray-700 px-2.5 py-1 rounded text-xs font-medium shadow-sm">NestJS</span>
+                            </div>
+                        </div>
+                        <div>
+                            <p class="font-semibold text-gray-700 mb-1.5">ERP & Enterprise:</p>
+                            <div class="flex flex-wrap gap-1.5">
+                                <span class="tech-badge bg-white text-gray-700 px-2.5 py-1 rounded text-xs font-medium shadow-sm">Odoo (v10-v19)</span>
+                                <span class="tech-badge bg-white text-gray-700 px-2.5 py-1 rounded text-xs font-medium shadow-sm">XML</span>
+                                <span class="tech-badge bg-white text-gray-700 px-2.5 py-1 rounded text-xs font-medium shadow-sm">Migraciones ERP</span>
+                            </div>
+                        </div>
+                        <div>
+                            <p class="font-semibold text-gray-700 mb-1.5">Protocolos & APIs:</p>
+                            <div class="flex flex-wrap gap-1.5">
+                                <span class="tech-badge bg-white text-gray-700 px-2.5 py-1 rounded text-xs font-medium shadow-sm">REST</span>
+                                <span class="tech-badge bg-white text-gray-700 px-2.5 py-1 rounded text-xs font-medium shadow-sm">JSON-RPC</span>
+                                <span class="tech-badge bg-white text-gray-700 px-2.5 py-1 rounded text-xs font-medium shadow-sm">XML-RPC</span>
+                                <span class="tech-badge bg-white text-gray-700 px-2.5 py-1 rounded text-xs font-medium shadow-sm">WebSockets</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Business Intelligence -->
+                <div class="avoid-break bg-gradient-to-br from-yellow-50 to-yellow-100 p-4 rounded-lg border border-yellow-200">
+                    <h3 class="font-bold text-gray-800 mb-3 flex items-center gap-2">
+                        <span class="text-xl" aria-hidden="true">📊</span> Business Intelligence
+                    </h3>
+                    <div class="space-y-3 text-sm">
+                        <div>
+                            <p class="font-semibold text-yellow-700 mb-1.5">BI Platforms:</p>
+                            <div class="flex flex-wrap gap-1.5">
+                                <span class="tech-badge bg-yellow-600 text-white px-2.5 py-1 rounded text-xs font-semibold shadow-sm">Apache Superset</span>
+                                <span class="tech-badge bg-white text-gray-700 px-2.5 py-1 rounded text-xs font-medium shadow-sm">Power BI</span>
+                                <span class="tech-badge bg-white text-gray-700 px-2.5 py-1 rounded text-xs font-medium shadow-sm">Google Data Studio</span>
+                            </div>
+                        </div>
+                        <div>
+                            <p class="font-semibold text-gray-700 mb-1.5">Reporting & Visualization:</p>
+                            <div class="flex flex-wrap gap-1.5">
+                                <span class="tech-badge bg-white text-gray-700 px-2.5 py-1 rounded text-xs font-medium shadow-sm">Crystal Reports</span>
+                                <span class="tech-badge bg-white text-gray-700 px-2.5 py-1 rounded text-xs font-medium shadow-sm">Excel Advanced</span>
+                                <span class="tech-badge bg-white text-gray-700 px-2.5 py-1 rounded text-xs font-medium shadow-sm">Power Query</span>
+                                <span class="tech-badge bg-white text-gray-700 px-2.5 py-1 rounded text-xs font-medium shadow-sm">DAX</span>
+                            </div>
+                        </div>
+                        <div>
+                            <p class="font-semibold text-gray-700 mb-1.5">Databases:</p>
+                            <div class="flex flex-wrap gap-1.5">
+                                <span class="tech-badge bg-white text-gray-700 px-2.5 py-1 rounded text-xs font-medium shadow-sm">PostgreSQL</span>
+                                <span class="tech-badge bg-yellow-600 text-white px-2.5 py-1 rounded text-xs font-semibold shadow-sm">ClickHouse</span>
+                                <span class="tech-badge bg-white text-gray-700 px-2.5 py-1 rounded text-xs font-medium shadow-sm">MySQL</span>
+                                <span class="tech-badge bg-white text-gray-700 px-2.5 py-1 rounded text-xs font-medium shadow-sm">SQLite</span>
+                            </div>
+                        </div>
+                        <div>
+                            <p class="font-semibold text-gray-700 mb-1.5">Analytics & Data Processing:</p>
+                            <div class="flex flex-wrap gap-1.5">
+                                <span class="tech-badge bg-white text-gray-700 px-2.5 py-1 rounded text-xs font-medium shadow-sm">Python</span>
+                                <span class="tech-badge bg-white text-gray-700 px-2.5 py-1 rounded text-xs font-medium shadow-sm">SQL</span>
+                                <span class="tech-badge bg-white text-gray-700 px-2.5 py-1 rounded text-xs font-medium shadow-sm">Pandas</span>
+                                <span class="tech-badge bg-white text-gray-700 px-2.5 py-1 rounded text-xs font-medium shadow-sm">Jupyter Notebook</span>
+                                <span class="tech-badge bg-white text-gray-700 px-2.5 py-1 rounded text-xs font-medium shadow-sm">ETL</span>
+                                <span class="tech-badge bg-white text-gray-700 px-2.5 py-1 rounded text-xs font-medium shadow-sm">ODBC</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Business Intelligence
+                <div class="avoid-break bg-gradient-to-br from-yellow-50 to-yellow-100 p-4 rounded-lg border border-yellow-200">
+                    <h3 class="font-bold text-gray-800 mb-3 flex items-center gap-2">
+                        <span class="text-xl" aria-hidden="true">📊</span> Business Intelligence
+                    </h3>
+                    <div class="space-y-3 text-sm">
+                        <div>
+                            <p class="font-semibold text-gray-700 mb-1.5">BI Platforms:</p>
+                            <div class="flex flex-wrap gap-1.5">
+                                <span class="tech-badge bg-yellow-600 text-white px-2.5 py-1 rounded text-xs font-semibold shadow-sm">Apache Superset</span>
+                                <span class="tech-badge bg-white text-gray-700 px-2.5 py-1 rounded text-xs font-medium shadow-sm">Power BI</span>
+                            </div>
+                        </div>
+                        <div>
+                            <p class="font-semibold text-gray-700 mb-1.5">Databases:</p>
+                            <div class="flex flex-wrap gap-1.5">
+                                <span class="tech-badge bg-white text-gray-700 px-2.5 py-1 rounded text-xs font-medium shadow-sm">PostgreSQL</span>
+                                <span class="tech-badge bg-yellow-600 text-white px-2.5 py-1 rounded text-xs font-semibold shadow-sm">ClickHouse</span>
+                                <span class="tech-badge bg-white text-gray-700 px-2.5 py-1 rounded text-xs font-medium shadow-sm">MySQL</span>
+                                <span class="tech-badge bg-white text-gray-700 px-2.5 py-1 rounded text-xs font-medium shadow-sm">SQLite</span>
+                            </div>
+                        </div>
+                        <div>
+                            <p class="font-semibold text-gray-700 mb-1.5">Analytics:</p>
+                            <div class="flex flex-wrap gap-1.5">
+                                <span class="tech-badge bg-white text-gray-700 px-2.5 py-1 rounded text-xs font-medium shadow-sm">Python</span>
+                                <span class="tech-badge bg-white text-gray-700 px-2.5 py-1 rounded text-xs font-medium shadow-sm">SQL</span>
+                                <span class="tech-badge bg-white text-gray-700 px-2.5 py-1 rounded text-xs font-medium shadow-sm">ETL</span>
+                            </div>
+                        </div>
+                    </div>
+                </div> -->
+            </div>
+        </section>
+
+        <!-- Salto de página para PDF -->
+        <div class="page-break"></div>
+
+        <!-- Formación Académica -->
+        <section class="px-8 pb-6" aria-labelledby="formacion-academica">
+            <h2 id="formacion-academica" class="text-2xl font-bold text-gray-800 mb-4 section-title">🎓 Formación Académica</h2>
+            
+            <div class="space-y-5">
+                <!-- Formación Reglada -->
+                <div class="avoid-break">
+                    <h3 class="font-bold text-gray-700 mb-3 text-lg">Formación Reglada</h3>
+                    <div class="space-y-2.5 text-sm">
+                        <div class="flex justify-between items-start gap-4">
+                            <p><strong>CFGS Desarrollo de Aplicaciones <strong>Multiplataforma</strong> (DAM)</strong> | ILERNA Online, Lleida</p>
+                            <p class="text-gray-600 flex-shrink-0">2020-2021</p>
+                        </div>
+                        <div class="flex justify-between items-start gap-4">
+                            <p><strong>Certificado de Profesionalidad N3 - Programación con Tecnologías Web</strong> | SEPE Asturias</p>
+                            <p class="text-gray-600 flex-shrink-0">2020</p>
+                        </div>
+                        <div class="flex justify-between items-start gap-4">
+                            <p><strong>Grado en Biología</strong> | Universidad de Oviedo</p>
+                            <p class="text-gray-600 flex-shrink-0">2015-2019</p>
+                        </div>
+                        <div class="flex justify-between items-start gap-4">
+                            <p><strong>CFGM Técnico en Equipos Electrónicos de Consumo</strong> | IES Tirant lo Blanc</p>
+                            <p class="text-gray-600 flex-shrink-0">2000-2002</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Certificaciones Profesionales -->
+                <div class="avoid-break">
+                    <h3 class="font-bold text-gray-700 mb-3 text-lg mt-6">Certificaciones Profesionales</h3>
+                    
+                    <div class="grid md:grid-cols-3 gap-5">
+                        <div class="text-sm avoid-break">
+                            <p class="font-semibold text-blue-600 mb-2">📱 Desarrollo Móvil (2022-2023):</p>
+                            <ul class="list-disc list-inside text-gray-600 space-y-1 ml-2">
+                                <li>Kotlin Expert - Dev Expert</li>
+                                <li>Compose Expert - Dev Expert</li>
+                                <li>Desarrollo iOS - CAS Training</li>
+                                <li>Jetpack Compose - Aristidev</li>
+                                <li>Corrutinas y Flow con Kotlin</li>
+                                <li>Arquitectura en Android</li>
+                            </ul>
+                        </div>
+
+                        <div class="text-sm avoid-break">
+                            <p class="font-semibold text-purple-600 mb-2">🤖 IA/LLM (2024-2025):</p>
+                            <ul class="list-disc list-inside text-gray-600 space-y-1 ml-2">
+                                <li>Bootcamp IA Generativa</li>
+                                <li>Orquestador en IA - DevExpert</li>
+                                <li>Curso de n8n + MCP</li>
+                            </ul>
+                            <p class="font-semibold text-green-600 mb-2 mt-3">🌐 Desarrollo Web (2024):</p>
+                            <ul class="list-disc list-inside text-gray-600 space-y-1 ml-2">
+                                <li>React: Hooks y MERN</li>
+                                <li>NestJs + Reportes PDF</li>
+                                <li>Astro Framework</li>
+                            </ul>
+                        </div>
+
+                        <div class="text-sm avoid-break">
+                            <p class="font-semibold text-yellow-600 mb-2">⚙️ Backend/Datos (2021-2024):</p>
+                            <ul class="list-disc list-inside text-gray-600 space-y-1 ml-2">
+                                <li>Python y Django - SEPE (40h)</li>
+                                <li>Analista de datos con Power BI</li>
+                                <li>Fundamentos de PostgreSQL</li>
+                                <li>Analítica Web - SEPE (15h)</li>
+                                <li>Google Data Studio</li>
+                                <li>Jupyter Notebook</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Idiomas e Info Adicional -->
+        <section class="px-8 pb-6 avoid-break" aria-labelledby="idiomas-info">
+            <div class="grid md:grid-cols-2 gap-6">
+                <div>
+                    <h2 id="idiomas" class="text-2xl font-bold text-gray-800 mb-4 section-title">🌍 Idiomas</h2>
+                    <div class="space-y-2 text-sm">
+                        <div class="flex gap-2">
+                            <span class="font-semibold">Español: </span>
+                            <span class="text-gray-600">Nativo</span>
+                        </div>
+                        <!-- <div class="flex">
+                            <span class="font-semibold">Catalán: </span>
+                            <span class="text-gray-600">Nativo</span>
+                        </div> -->
+                        <div class="flex gap-2">
+                            <span class="font-semibold">Inglés:</span>
+                            <span class="text-gray-600">B2.1 (en proceso B2.2)</span>
+                        </div>
+                        <div class="flex gap-2">
+                            <span class="font-semibold">Francés: </span>
+                            <span class="text-gray-600">Básico</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <h2 id="info-adicional" class="text-2xl font-bold text-gray-800 mb-4 section-title">📋 Info Adicional</h2>
+                    <div class="space-y-2 text-sm">
+                        <div class="flex gap-2">
+                            <span class="font-semibold">Permisos de conducir:</span>
+                            <span class="text-gray-600">A y B</span>
+                        </div>
+                        <!-- <div class="flex gap-2">
+                            <span class="font-semibold">Disponibilidad:</span>
+                            <span class="text-gray-600">Inmediata</span>
+                        </div> -->
+                        <div class="flex gap-2">
+                            <span class="font-semibold">Ubicación:</span>
+                            <span class="text-gray-600">Oviedo, Asturias</span>
+                        </div>
+                        <div class="flex gap-2">
+                            <span class="font-semibold">Modalidad:</span>
+                            <span class="text-gray-600">Remoto/Híbrido</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="px-8 py-6 bg-gray-50 text-center text-gray-500 text-sm avoid-break" role="contentinfo">
+            <p>Última actualización: Noviembre 2025</p>
+            <!-- <p class="text-xs mt-1">CV generado para aplicación Kotlin Multiplatform</p> -->
+        </footer>
+    </main>
+</body>
+</html>
