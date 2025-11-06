@@ -96,14 +96,26 @@
             body {
                 background-color: #f3f4f6;  /* Un gris muy claro */
                 min-height: 100vh;
-                padding: 2rem 1rem;         /* Añade padding arriba y abajo */
+                padding: 0 0;            /* Padding arriba y abajo, sin laterales */
             }
 
             .container-cv {
                 max-width: 1024px;          /* Limita el ancho máximo */
                 margin: 0 auto;             /* Centra el contenido */
                 background: white;
-                box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 
+                box-shadow: none;
+                border-radius: 0;
+            }
+        }
+
+        /* Padding lateral y sombra solo en pantallas grandes */
+        @media screen and (min-width: 1080px) {
+            body {
+                padding: 2rem 1rem;         /* Añade padding lateral en pantallas grandes */
+            }
+
+            .container-cv {
+                box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1),
                         0 1px 2px -1px rgba(0, 0, 0, 0.1);
                 border-radius: 0.5rem;      /* Bordes redondeados */
             }
