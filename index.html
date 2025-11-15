@@ -36,23 +36,51 @@
             }
 
             header {
-                padding: 2.5rem 2rem 1.5rem 2rem !important;  /* Más padding arriba que abajo */
+                padding: 1.25rem 2rem 1rem 2rem !important;  /* Reducido el padding superior */
             }
 
             section {
-                padding: 2rem 2rem !important;
+                padding: 1.5rem 2rem !important;  /* Reducción moderada */
             }
 
             /* Primera sección después del header */
             header + section {
-                padding-top: 1.5rem !important;
+                padding-top: 1.25rem !important;
             }
 
-            /* Removida la duplicación del header + section */
-            
+            /* Reducir espacio entre párrafos moderadamente */
+            .space-y-3 > * + * {
+                margin-top: 0.6rem !important;
+            }
+
+            /* Compactar levemente la caja de "Diferencial clave" */
+            .border-l-4 {
+                padding: 0.875rem !important;
+                margin-top: 1rem !important;
+            }
+
+            /* Compactar las cajas de logros levemente */
+            .grid.print\\:grid-cols-3 > div {
+                padding: 0.875rem !important;
+            }
+
+            /* Reducir gap moderadamente */
+            .space-y-4 > * + * {
+                margin-top: 0.875rem !important;
+            }
+
+            .space-y-5 > * + * {
+                margin-top: 1.25rem !important;
+            }
+
+            /* Compactar footer */
+            footer {
+                padding: 1.25rem 2rem !important;
+            }
+
             /* Clases de utilidad para impresión */
             .no-print { display: none !important; }
-            .page-break { 
+            .page-break {
                 page-break-after: always;
                 break-after: always;
             }
@@ -60,13 +88,13 @@
                 page-break-inside: avoid;
                 break-inside: avoid;
             }
-            
+
             /* Prevenir saltos en títulos */
             h2, h3, h4 {
                 page-break-after: avoid;
                 break-after: avoid;
             }
-            
+
             .tech-badge {
                 break-inside: avoid;
             }
@@ -227,7 +255,7 @@
     <!-- Contenedor principal -->
     <main class="container-cv bg-white min-h-screen" role="main">
         <!-- Header -->
-        <header class="bg-gradient-to-r from-blue-600 to-blue-800 text-white px-8 py-8 avoid-break relative" role="banner">
+        <header class="bg-gradient-to-r from-blue-600 to-blue-800 text-white px-8 py-6 avoid-break relative" role="banner">
             <!-- Foto de perfil (dentro del header) -->
             <div class="profile-container">
                 <img src="assets/profile.jpg" alt="Foto de perfil de Santiago Pérez Barber" class="profile-image">
@@ -296,7 +324,7 @@
         </header>
 
         <!-- Perfil Profesional -->
-        <section class="px-8 avoid-break pt-6" aria-labelledby="perfil-profesional">
+        <section class="px-8 pt-6" aria-labelledby="perfil-profesional">
             <h2 id="perfil-profesional" class="text-2xl font-bold text-gray-800 mb-4 section-title">👨‍💻 Perfil Profesional</h2>
             <div class="space-y-3 text-gray-700 leading-relaxed">
                 <p>
@@ -309,7 +337,7 @@
                     Actualmente desarrollando <strong class="text-blue-700">soluciones impulsadas por IA</strong> con enfoque en privacidad de datos mediante inferencia local, sistemas <em>RAG</em> y agentes inteligentes para aplicaciones empresariales.
                 </p>
             </div>
-            <div class="mt-5 p-4 bg-blue-50 border-l-4 border-blue-600 rounded-r-lg">
+            <div class="mt-5 p-4 bg-blue-50 border-l-4 border-blue-600 rounded-r-lg print:break-inside-auto">
                 <p class="text-gray-800 font-semibold mb-1">🌟 Diferencial clave:</p>
                 <p class="text-gray-700 text-sm"><em>Early adopter</em> en <em><strong>KMP</strong></em> desde versión beta, con proyectos en producción. Especialización en arquitecturas <em><strong>offline-first</strong></em> y desarrollo de agentes IA con privacidad de datos.</p>
             </div>
@@ -319,7 +347,7 @@
         <section class="px-8 py-6" aria-labelledby="experiencia-profesional">
             <h2 id="experiencia-profesional" class="text-2xl font-bold text-gray-800 mb-4 section-title">💼 Experiencia Profesional</h2>
             
-            <article class="avoid-break">
+            <article class="">
                 <!-- Header de Bytacora -->
                 <div class="mb-5">
                     <div class="flex justify-between items-start mb-4">
@@ -356,9 +384,6 @@
                             <p class="text-sm text-green-50">Despliegue de Superset empresarial. ClickHouse para <em>analytics</em> de alto volumen.</p>
                         </div>
                     </div>
-
-                    <!-- Salto de página para PDF -->
-                    <div class="page-break"></div>
 
                     <!-- Descripción en 2 Columnas -->
                     <div class="grid md:grid-cols-2 print:grid-cols-2 gap-4 print:shadow-none text-sm text-gray-700">
