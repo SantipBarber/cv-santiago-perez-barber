@@ -159,29 +159,83 @@
                 background: #2563eb;
             }
         }
+
+        /* Estilos para la foto de perfil */
+        .profile-container {
+            position: absolute;
+            bottom: -50px; /* La mitad de la imagen (50px en móvil) sobresale hacia abajo del header */
+            right: 1rem;
+            z-index: 10;
+        }
+
+        .profile-image {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            object-position: top center;
+            border: 4px solid white;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            display: block;
+        }
+
+        /* En pantallas grandes (desktop y tablet) */
+        @media screen and (min-width: 768px) {
+            .profile-container {
+                bottom: -75px; /* La mitad de 150px */
+                right: 1.5rem;
+            }
+
+            .profile-image {
+                width: 150px;
+                height: 150px;
+                border: 5px solid white;
+            }
+        }
+
+        /* Ajustes para impresión */
+        @media print {
+            .profile-container {
+                bottom: -75px;
+                right: 1.5rem;
+            }
+
+            .profile-image {
+                width: 150px;
+                height: 150px;
+                border: 5px solid white;
+                print-color-adjust: exact;
+                -webkit-print-color-adjust: exact;
+            }
+        }
     </style>
 </head>
 <body class="bg-white-100">
     <!-- Botón de descarga PDF (solo visible en pantalla) -->
     <div class="no-print fixed top-4 right-4 z-50">
-        <button 
-            onclick="window.print()" 
-            class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg shadow-lg transition duration-200 flex items-center gap-2"
+        <button
+            onclick="window.print()"
+            class="bg-blue-600 hover:bg-blue-700 text-white font-semibold p-2.5 md:py-3 md:px-6 rounded-lg shadow-lg transition duration-200 flex items-center gap-2"
             aria-label="Descargar CV como PDF">
             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M9 19l3 3m0 0l3-3m-3 3V10"></path>
             </svg>
-            Descargar PDF
+            <span class="hidden md:inline">Descargar PDF</span>
         </button>
     </div>
 
     <!-- Contenedor principal -->
     <main class="container-cv bg-white min-h-screen" role="main">
         <!-- Header -->
-        <header class="bg-gradient-to-r from-blue-600 to-blue-800 text-white px-8 py-8 avoid-break" role="banner">
-            <h1 class="text-4xl font-bold mb-3">Santiago Pérez Barber</h1>
-            <p class="text-xl text-blue-100 mb-4">Desarrollador Android/iOS Nativo y <strong>Multiplataforma</strong></p>
-            <div class="flex flex-wrap gap-5 text-sm text-blue-100">
+        <header class="bg-gradient-to-r from-blue-600 to-blue-800 text-white px-8 py-8 avoid-break relative" role="banner">
+            <!-- Foto de perfil (dentro del header) -->
+            <div class="profile-container">
+                <img src="assets/profile.jpg" alt="Foto de perfil de Santiago Pérez Barber" class="profile-image">
+            </div>
+
+            <h1 class="text-4xl font-bold mb-3 md:pr-48">Santiago Pérez Barber</h1>
+            <p class="text-xl text-blue-100 mb-4 md:pr-48">Desarrollador Android/iOS Nativo y <strong>Multiplataforma</strong></p>
+            <div class="flex flex-wrap gap-5 text-sm text-blue-100 md:pr-48">
                 <div class="flex items-center gap-2">
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
@@ -242,7 +296,7 @@
         </header>
 
         <!-- Perfil Profesional -->
-        <section class="px-8 pt-6 avoid-break" aria-labelledby="perfil-profesional">
+        <section class="px-8 avoid-break pt-6" aria-labelledby="perfil-profesional">
             <h2 id="perfil-profesional" class="text-2xl font-bold text-gray-800 mb-4 section-title">👨‍💻 Perfil Profesional</h2>
             <div class="space-y-3 text-gray-700 leading-relaxed">
                 <p>
